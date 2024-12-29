@@ -8,73 +8,147 @@
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="./assets/css/vendor/bootstrap.min.css" /> -->
 
-    <script src="https://kit.fontawesome.com/476ec20884.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/476ec20884.js"
+      crossorigin="anonymous"
+    ></script>
 
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Baloo+Bhai+2:wght@400..800&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap");
+
+      /* ====================
+  Reset Default CSS Start
+  ==================== */
+
       :root {
-        --color-white-100: hsl(206, 5%, 100%);
-        --color-white-200: hsl(206, 5%, 90%);
-        --color-white-300: hsl(206, 5%, 80%);
-        --color-white-400: hsl(206, 5%, 60%);
-        --color-white-500: hsl(206, 5%, 50%);
-        --color-black-100: hsl(213, 23%, 8%);
-        --color-black-200: hsl(214, 21%, 6%);
-        --color-black-300: hsl(210, 21%, 6%);
-        --color-black-400: hsl(216, 22%, 4%);
-        --color-black-500: hsl(220, 18%, 3%);
-        --color-pink-100: hsl(326, 85%, 90%);
-        --color-pink-200: hsl(327, 87%, 80%);
-        --color-pink-300: hsl(329, 86%, 70%);
-        --color-pink-400: hsl(330, 81%, 60%);
-        --color-pink-500: hsl(333, 71%, 50%);
-        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-          0 1px 2px 0 rgba(0, 0, 0, 0.06);
-        --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --primary-font: "Space Grotesk";
+        --secondary-font: "Albert Sans";
+        --primary-color: #f28735;
+        --secondary-color: #ffffff;
+        --ac-1: #c6c6c6;
+        --ac-2: #eeeeee;
+        --shade-1: #fce7d7;
+        --shade-2: #facfae;
+        --main-60: #f7b786;
+        --main-80: #f59f5d;
+        --main-120: #c26c2a;
+        --main-140: #915120;
+        --main-160: #613615;
+        --main-180: #301b0b;
+        --text-1: #171717;
+        --text-2: #454545;
       }
 
-      a,
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: var(--primary-font);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin-top: 0;
+      }
+
+      h6 {
+        font-family: var(--secondary-font);
+      }
+
+      a {
+        text-decoration: none !important;
+      }
+
+      p {
+        color: var(--ac-ash);
+        text-align: center;
+        font-family: var(--secondary-font);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28.8px;
+      }
+
+      ul {
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none;
+      }
+
       button {
-        cursor: pointer;
         border: none;
         outline: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background: none;
-        box-shadow: none;
       }
 
-      img,
-      video {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        -o-object-fit: cover;
-        object-fit: cover;
+      input {
+        outline: none;
+      }
+
+      body {
+        background: var(--ac-black) !important;
       }
 
       .container {
-        max-width: 75rem;
-        height: auto;
-        margin: 0 auto;
-        padding: 0 1.25rem;
+        max-width: 1400px !important;
+        margin: auto;
+        padding: 0 14px !important;
       }
 
-      .brand {
-        font-family: inherit;
-        font-size: 1.6rem;
-        font-weight: 700;
-        line-height: 1.25;
-        letter-spacing: -1px;
-        text-transform: uppercase;
-        color: var(--color-pink-500);
+      /*====================
+Reset Default CSS End
+====================*/
+
+      /* Webkit Scroll bar */
+
+      ::-webkit-scrollbar {
+        width: 10px;
       }
 
-      .header {
+      ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        transition: 0.3s;
+        background: var(--primary-color);
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Webkit Scroll bar */
+
+      /* Navbar Start */
+      #header .brand {
+        width: 150px;
+      }
+
+      #header .brand img {
+        width: 100%;
+      }
+
+      #header .logo_name .brand {
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      #header .logo_name .brand img {
+        width: 140px;
+      }
+
+      #header {
         position: fixed;
         top: 0;
         left: 0;
@@ -82,153 +156,154 @@
         height: auto;
         z-index: 100;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white-100);
+        background-color: var(--secondary-color);
       }
 
-      .wrapper {
+      #header .navbar {
+        padding: 0px;
+      }
+
+      #header .navbar #menu .menu_link {
+        padding: 24px 0px !important;
+      }
+
+      #header .wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        -moz-column-gap: 1rem;
-        column-gap: 1rem;
-        row-gap: 2rem;
         width: 100%;
-        height: 4rem;
-        margin: 0 auto;
-        padding: 0;
+        border-bottom: 1px solid var(--ac-1);
       }
-      .navbar .menu_heading_box {
+
+      #header .navbar .menu_heading_box {
         display: flex;
         align-items: center;
+        padding: 10px 0;
+        padding-bottom: 30px;
         justify-content: space-between !important;
-        background: black;
       }
-      .navbar .sidebar_heading {
+      #header .navbar .sidebar_heading {
         display: none;
       }
-      .navbar .sidebar_logo .close_icon {
-        background: red !important;
+      #header .navbar .close_icon {
+        background: var(--ac-2);
+        border-radius: 6px;
+        width: 35px;
+        height: 35px;
+      }
+      #header .navbar .close_icon i {
+        color: var(--text-1);
+        font-size: 18px;
       }
 
-      @media screen and (max-width: 992px) {
-        .navbar .sidebar_heading {
-          display: block;
-        }
-
-        .navbar {
-          position: fixed;
-          top: 50px;
-          left: -100%;
-          width: 75%;
-          height: 100%;
-          z-index: 10;
-          opacity: 0;
-          overflow-y: auto;
-          visibility: hidden;
-          box-shadow: var(--shadow-medium);
-          background-color: var(--color-white-100);
-          transition: all 0.5s ease;
-        }
-        .navbar.active {
-          left: 0rem;
-          opacity: 1;
-          visibility: visible;
-        }
-      }
-      @media screen and (max-width: 576px) {
-        .navbar {
-          position: fixed;
-          top: 50px;
-          left: -100%;
-          width: calc(100% - 28px);
-          height: 100%;
-          z-index: 10;
-          opacity: 0;
-          margin: 0 14px;
-          overflow-y: auto;
-          visibility: hidden;
-          box-shadow: var(--shadow-medium);
-          background-color: var(--color-white-100);
-          transition: all 0.5s ease;
-        }
-      }
-
-      .menu_item {
+      #header .menu_item {
         position: relative;
         display: inline-block;
         margin-left: 1.5rem;
       }
-      .menu_link {
+      #header .menu_link {
         display: flex;
         justify-content: center;
         align-items: center;
-        -moz-column-gap: 0.25rem;
-        column-gap: 0.25rem;
         font-family: inherit;
-        font-size: 1rem;
-        font-weight: 500;
-        line-height: inherit;
+        font-size: 18px;
+        font-family: var(--secondary-font);
+        font-weight: 600;
+        color: var(--text-1);
         cursor: pointer;
-        text-transform: capitalize;
-        color: var(--color-black-500);
-        transition: all 0.3s ease-in-out;
+        transition: 0.3s;
       }
-      .menu_link > i.bx {
-        font-size: 1.35rem;
-        line-height: 1.5;
-        color: inherit;
+      #header .menu_item .active {
+        color: var(--primary-color);
       }
-      .menu_link:hover {
+      #header .menu_link .fa-angle-down {
+        transition: 0.3s;
+        margin-left: 5px !important;
+        color: var(--text-1);
+      }
+      #header .menu_item:hover .menu_link {
         outline: none;
-        color: var(--color-pink-500);
+        color: var(--primary-color);
       }
-      @media only screen and (min-width: 993px) {
-        .menu_dropdown:hover > .submenu {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
+      #header .menu_item:hover .fa-angle-down {
+        rotate: 180deg;
+        color: var(--primary-color);
       }
-      @media only screen and (max-width: 992px) {
-        .menu {
-          width: 100%;
-          height: auto;
-          padding: 1rem 0;
-        }
-        .menu_item {
-          display: block;
-          margin: 0 auto;
-        }
-        .menu_link {
-          justify-content: space-between;
-          padding: 0.5rem 1.25rem;
-        }
+      #header .contact_us_btn {
+        background: var(--primary-color);
+        position: relative;
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 12px 12px 12px 0px;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1 !important;
+      }
+      #header .contact_us_btn span {
+        color: var(--text-1);
+        transition: 0.4s;
+        font-family: var(--secondary-font);
+        font-size: 18px;
+        font-weight: 600;
       }
 
-      .submenu {
+      #header .contact_us_btn::after {
+        content: "";
         position: absolute;
-        top: 2.35rem;
-        left: -2rem;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        background: var(--text-1);
+        transition: 0.4s;
+        z-index: -1 !important;
+      }
+
+      #header .contact_us_btn:hover span {
+        color: var(--secondary-color);
+      }
+
+      #header .contact_us_btn:hover::after {
+        height: 100%;
+      }
+
+      #header .social {
+        display: none;
+      }
+
+      #header .submenu {
+        position: absolute;
+        top: 74px;
+        left: 0;
         min-width: 13rem;
-        height: auto;
-        padding: 0 1rem 1rem;
+        max-height: auto !important;
+        margin-bottom: 20px;
+        padding: 10px !important;
         opacity: 0;
         visibility: hidden;
         transform: translateY(1rem);
         border-radius: 0 0 0.25rem 0.25rem;
-        border-top: 2px solid var(--color-pink-400);
-        box-shadow: var(--shadow-medium);
+        border-top: 2px solid var(--primary-color);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
         background-color: var(--color-white-100);
-        transition: all 0.3s ease-in-out;
+        transition: 0.2s;
       }
-      .submenu_item {
+
+      #header .submenu_item {
         display: block;
         margin-top: 0.75rem;
       }
-      .submenu_link {
-        font-family: inherit;
+
+      #header .submenu_item:nth-child(1) {
+        margin-top: 0px;
+      }
+
+      #header .submenu_link {
+        display: block;
         font-size: 1rem;
         font-weight: 500;
         line-height: inherit;
@@ -236,30 +311,12 @@
         color: var(--color-black-500);
         transition: all 0.35s ease;
       }
-      .submenu_link:hover {
+      #header .submenu_link:hover {
         outline: none;
-        color: var(--color-pink-500);
-      }
-      @media only screen and (max-width: 992px) {
-        .submenu {
-          position: relative;
-          top: -0.5rem;
-          left: 2.5rem;
-          width: 100%;
-          max-height: 0;
-          padding: 0px;
-          border: none;
-          outline: none;
-          opacity: 1;
-          overflow: hidden;
-          visibility: visible;
-          transform: translateY(0px);
-          box-shadow: none;
-          background: transparent;
-        }
+        color: var(--primary-color);
       }
 
-      .burger {
+      #header .burger {
         position: relative;
         display: none;
         cursor: pointer;
@@ -272,15 +329,7 @@
         background: transparent;
       }
 
-      @media only screen and (max-width: 992px) {
-        .burger {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-        }
-      }
-
-      .overlay {
+      #header .overlay {
         position: fixed;
         top: 0;
         left: 0;
@@ -292,147 +341,307 @@
         transition: all 0.35s ease-in-out;
         background-color: rgba(0, 0, 0, 0.65);
       }
+
+      @media screen and (max-width: 992px) {
+        #header .navbar .sidebar_heading {
+          display: block;
+        }
+
+        #header .navbar {
+          display: block;
+          position: fixed;
+          top: 0px;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          padding-top: 0px;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--color-white-100);
+          transition: all 0.5s ease;
+        }
+        #header .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+          background: var(--secondary-color);
+          overflow-x: hidden;
+          padding: 10px;
+        }
+      }
+
+      @media only screen and (min-width: 993px) {
+        #header .menu_dropdown:hover > .submenu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+
+      @media screen and (max-width: 992px) {
+        #header .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        #header .menu_item {
+          display: block;
+          margin: 0 auto;
+        }
+        #header .menu_item .active {
+          background: var(--shade-1);
+          color: var(--text-1);
+        }
+        #header .menu_link {
+          justify-content: space-between;
+        }
+
+        #header .navbar #menu .menu_link {
+          padding: 10px 10px !important;
+          font-size: 16px;
+        }
+
+        #header .navbar #menu .menu_link {
+          border-radius: 8px;
+          margin-top: 6px;
+        }
+
+        #header .navbar #menu .menu_link:hover {
+          background: var(--shade-1);
+          color: var(--text-1);
+        }
+
+        #header .contact_us_btn {
+          display: none;
+        }
+
+        #header .social {
+          border-top: 1px solid var(--ac-1);
+          margin-top: 20px;
+        }
+
+        #header .social .item {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+          padding: 20px 0;
+          transition: 0.4s;
+        }
+
+        #header .social .link:hover i {
+          color: var(--primary-color);
+        }
+
+        #header .social .item i {
+          font-size: 26px;
+          color: var(--text-1);
+          transition: 0.4s;
+        }
+
+        #header .social .mobile {
+          display: block;
+          width: 100%;
+          border-radius: 0px 12px 12px 12px;
+          padding: 10px 20px;
+        }
+
+        #header .social .mobile span {
+          font-size: 16px;
+        }
+
+        #header .social {
+          display: block;
+        }
+      }
+
       @media only screen and (max-width: 992px) {
-        .overlay.active {
+        #header .submenu {
+          position: relative;
+          top: 4px;
+          left: 0;
+          width: 100%;
+          max-height: 0px;
+          padding: 0px !important;
+          border-radius: 12px;
+          background: var(--text-1) !important;
+          border: none;
+          outline: none;
+          opacity: 1;
+          overflow: hidden;
+          visibility: visible;
+          transform: translateY(0px);
+          box-shadow: none;
+          background: transparent;
+        }
+        #header .submenu .submenu_link {
+          display: block;
+          color: var(--secondary-color);
+          margin: 8px 0;
+          padding: 6px 10px;
+          transition: 0.4s;
+        }
+
+        #header .submenu .submenu_link:hover {
+          background: var(--primary-color);
+          color: var(--text-1);
+        }
+
+        #header .submenu .submenu_item {
+          margin: 5px 0;
+        }
+        #header .submenu .submenu_item:nth-child(1) {
+          margin-top: 12px;
+        }
+
+        #header .wrapper {
+          padding: 10px;
+        }
+        #header .submenu_item:nth-child(1) {
+          margin-top: 0px !important;
+        }
+
+        .menu_item.active .menu_link {
+          background-color: var(--shade-1) !important;
+        }
+        .menu_item.active .menu_link .fa-angle-down {
+          rotate: 180deg;
+        }
+
+        .menu_dropdown.active {
+          margin-bottom: 10px !important;
+        }
+
+        .menu_dropdown.active .submenu {
+          padding: 20px !important;
+        }
+      }
+
+      @media only screen and (max-width: 992px) {
+        #header .overlay.active {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        #header .burger {
           display: block;
           opacity: 1;
           visibility: visible;
         }
       }
-
-      .search_box {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-      }
+      /* Navbar End */
     </style>
   </head>
   <body>
     <header class="header" id="header">
-      <section class="wrapper container">
-        <a href="./index.html" class="brand">Brand</a>
+      <div class="container">
+        <div class="wrapper">
+          <a href="./index.html" class="brand">
+            <img src="./assets/icon/Logo.svg" alt="" />
+          </a>
 
-        <span class="overlay"></span>
-        <nav class="navbar" id="navbar">
-          <div class="sidebar_heading">
-            <div class="menu_heading_box">
-              <span class="logo_name">Menu</span>
-              <button class="close_icon">
-                <svg
-                  width="36"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clip-path="url(#clip0_1099_5047)">
-                    <path
-                      d="M18 0C8.064 0 0 8.064 0 18C0 27.936 8.064 36 18 36C27.936 36 36 27.936 36 18C36 8.064 27.936 0 18 0ZM30.24 17C30.24 17.5523 29.7923 18 29.24 18H21.6V29.24C21.6 29.7923 21.1523 30.24 20.6 30.24H19C18.4477 30.24 18 29.7923 18 29.24V21.6H6.76C6.20772 21.6 5.76 21.1523 5.76 20.6V19C5.76 18.4477 6.20772 18 6.76 18H14.4V6.76C14.4 6.20772 14.8477 5.76 15.4 5.76H17C17.5523 5.76 18 6.20772 18 6.76V14.4H29.24C29.7923 14.4 30.24 14.8477 30.24 15.4V17Z"
-                      fill="white"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_1099_5047">
-                      <rect width="36" height="36" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
+          <span class="overlay"></span>
+          <nav class="navbar" id="navbar">
+            <div class="sidebar_heading">
+              <div class="menu_heading_box">
+                <div class="logo_name">
+                  <a href="./index.html" class="brand">
+                    <img src="./assets/icon/Logo.svg" alt="" />
+                  </a>
+                </div>
+                <button class="close_icon">
+                  <i class="fa-solid fa-x"></i>
+                </button>
+              </div>
+            </div>
+            <ul class="menu" id="menu">
+              <li class="menu_item">
+                <a href="#" class="menu_link active">HOME</a>
+              </li>
+              <li class="menu_item">
+                <a href="#" class="menu_link">SERVICES</a>
+              </li>
+              <li class="menu_item">
+                <a href="#" class="menu_link">TENDER</a>
+              </li>
+              <li class="menu_item">
+                <a href="#" class="menu_link">PROJECTS</a>
+              </li>
+              <li class="menu_item menu_dropdown">
+                <span class="menu_link" data-toggle="submenu"
+                  >PAGES<i class="fa-solid fa-angle-down"></i
+                ></span>
+                <ul class="submenu">
+                  <li class="submenu_item">
+                    <a href="#" class="submenu_link">NOTICE</a>
+                  </li>
+                  <li class="submenu_item">
+                    <a href="#" class="submenu_link">GALLERY</a>
+                  </li>
+                  <li class="submenu_item">
+                    <a href="#" class="submenu_link">BLOG</a>
+                  </li>
+                  <li class="submenu_item">
+                    <a href="#" class="submenu_link">PRIVACY POLICY</a>
+                  </li>
+                  <li class="submenu_item">
+                    <a href="#" class="submenu_link">TERMS & CONDITIONS</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu_item">
+                <a href="#" class="menu_link">ABOUT US</a>
+              </li>
+            </ul>
+            <div class="social">
+              <div class="item">
+                <a href="#" class="link">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="link">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="link">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="#" class="link">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+              </div>
+              <button class="contact_us_btn mobile">
+                <span>CONTACT US</span>
               </button>
             </div>
-          </div>
-          <ul class="menu" id="menu">
-            <li class="menu_item"><a href="#" class="menu_link">Home</a></li>
-            <li class="menu_item"><a href="#" class="menu_link">Home</a></li>
-            <li class="menu_item"><a href="#" class="menu_link">Home</a></li>
-            <li class="menu_item menu_dropdown">
-              <span class="menu_link" data-toggle="submenu"
-                >Feature<i class="fa-solid fa-angle-down"></i
-              ></span>
-              <ul class="submenu">
-                <li class="submenu_item">
-                  <a href="#" class="submenu_link">Feature Link</a>
-                </li>
-                <li class="submenu_item">
-                  <a href="#" class="submenu_link">Feature Link</a>
-                </li>
-                <li class="submenu_item">
-                  <a href="#" class="submenu_link">Feature Link</a>
-                </li>
-                <li class="submenu_item">
-                  <a href="#" class="submenu_link">Feature Link</a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu_item"><a href="#" class="menu_link">Support</a></li>
-            <li class="menu_item"><a href="#" class="menu_link">Support</a></li>
-          </ul>
-        </nav>
+          </nav>
 
-        <div class="search_box">
-          <button class="search">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="0.5"
-                y="0.5"
-                width="47"
-                height="47"
-                rx="23.5"
-                stroke="#E6F5FF"
-              />
-              <g clip-path="url(#clip0_1099_4598)">
+          <div class="search_box">
+            <button class="contact_us_btn desktop">
+              <span>CONTACT US</span>
+            </button>
+            <div class="burger" id="burger">
+              <svg
+                width="44"
+                height="44"
+                viewBox="0 0 44 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
-                  d="M21 12.0039C25.9703 12.0039 30 16.0337 30 21.0039C30 22.5234 29.6197 23.9537 28.9537 25.2099L35.2118 31.4664L35.2065 31.4709C35.6955 31.9517 36 32.6177 36 33.3579C36 34.8197 34.815 36.0047 33.3533 36.0047C32.6145 36.0047 31.9478 35.7002 31.467 35.2104L31.4685 35.2089L25.2127 28.9539C23.9557 29.6222 22.5232 30.0039 21 30.0039C16.0298 30.0039 12 25.9742 12 21.0039C12 16.0337 16.0298 12.0039 21 12.0039ZM32.4037 34.2729C32.6452 34.5234 32.9797 34.6802 33.3533 34.6802C34.0845 34.6802 34.677 34.0884 34.677 33.3572C34.677 32.9837 34.5195 32.6499 34.2698 32.4077L34.2765 32.4017L28.227 26.3522C27.6982 27.0654 27.0682 27.6954 26.3565 28.2257L32.4037 34.2729ZM21 28.5047C25.1415 28.5047 28.5 25.1454 28.5 21.0047C28.5 16.8632 25.1415 13.5047 21 13.5047C16.8592 13.5047 13.5 16.8632 13.5 21.0047C13.5 25.1454 16.8592 28.5047 21 28.5047Z"
-                  fill="white"
+                  d="M5.5 22H38.5M5.5 11H38.5M5.5 33H27.5"
+                  stroke="#171717"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
-                <path
-                  d="M21 15.7539C23.9002 15.7539 26.25 18.1044 26.25 21.0039C26.25 21.2109 26.082 21.3789 25.875 21.3789C25.668 21.3789 25.5 21.2109 25.5 21.0039C25.5 18.5192 23.4855 16.5039 21 16.5039C20.7937 16.5039 20.625 16.3359 20.625 16.1289C20.625 15.9219 20.7937 15.7539 21 15.7539Z"
-                  fill="white"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_1099_4598">
-                  <rect
-                    width="24"
-                    height="24"
-                    fill="white"
-                    transform="translate(12 12)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-          </button>
-          <button class="view_plan_btn">View Plans</button>
-          <div class="burger" id="burger">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="48" height="48" rx="24" fill="#0099FF" />
-              <path
-                d="M32.1666 31.0003C32.8083 31.0003 33.3333 31.5253 33.3333 32.167C33.3333 32.8087 32.8083 33.3337 32.1666 33.3337H15.8333C15.1916 33.3337 14.6666 32.8087 14.6666 32.167C14.6666 31.5253 15.1916 31.0003 15.8333 31.0003H32.1666ZM32.1666 28.667H15.8333C13.9036 28.667 12.3333 30.2373 12.3333 32.167C12.3333 34.0967 13.9036 35.667 15.8333 35.667H32.1666C34.0963 35.667 35.6666 34.0967 35.6666 32.167C35.6666 30.2373 34.0963 28.667 32.1666 28.667Z"
-                fill="white"
-              />
-              <path
-                d="M32.1666 22.8333C32.8083 22.8333 33.3333 23.3583 33.3333 24C33.3333 24.6417 32.8083 25.1667 32.1666 25.1667H15.8333C15.1916 25.1667 14.6666 24.6417 14.6666 24C14.6666 23.3583 15.1916 22.8333 15.8333 22.8333H32.1666ZM32.1666 20.5H15.8333C13.9036 20.5 12.3333 22.0703 12.3333 24C12.3333 25.9297 13.9036 27.5 15.8333 27.5H32.1666C34.0963 27.5 35.6666 25.9297 35.6666 24C35.6666 22.0703 34.0963 20.5 32.1666 20.5Z"
-                fill="white"
-              />
-              <path
-                d="M32.1666 14.6663C32.8083 14.6663 33.3333 15.1913 33.3333 15.833C33.3333 16.4747 32.8083 16.9997 32.1666 16.9997H15.8333C15.1916 16.9997 14.6666 16.4747 14.6666 15.833C14.6666 15.1913 15.1916 14.6663 15.8333 14.6663H32.1666ZM32.1666 12.333H15.8333C13.9036 12.333 12.3333 13.9033 12.3333 15.833C12.3333 17.7627 13.9036 19.333 15.8333 19.333H32.1666C34.0963 19.333 35.6666 17.7627 35.6666 15.833C35.6666 13.9033 34.0963 12.333 32.1666 12.333Z"
-                fill="white"
-              />
-            </svg>
+              </svg>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </header>
     <script>
       const navbarMenu = document.getElementById("navbar");
