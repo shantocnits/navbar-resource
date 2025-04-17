@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Responsive Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Desktop Dropdown Styles */
+      @media (min-width: 768px) {
+        .dropdown-content {
+          display: block;
+          opacity: 0;
+          max-height: 0;
+          transition: all 0.4s ease;
+          visibility: hidden;
+          background-color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown:hover .dropdown-content {
+          opacity: 1;
+          max-height: 500px;
+          visibility: visible;
+        }
+
+        .sub-dropdown-content {
+          display: block;
+          opacity: 0;
+          max-height: 0;
+          transition: all 0.4s ease;
+          visibility: hidden;
+          position: absolute;
+          min-width: 14rem;
+          background-color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .has-sub-dropdown:hover .sub-dropdown-content {
+          opacity: 1;
+          max-height: 500px;
+          visibility: visible;
+        }
+
+        .rotate-sub-icon {
+          transform: rotate(0deg);
+          transition: transform 0.3s ease;
+        }
+
+        .has-sub-dropdown:hover .rotate-sub-icon {
+          transform: rotate(-90deg);
+        }
+
+        .dropdown:hover .rotate-icon {
+          transform: rotate(180deg);
+        }
+
+        /* Dynamic positioning classes */
+        .dropdown-content-right {
+          left: 0;
+        }
+
+        .dropdown-content-left {
+          right: 0;
+        }
+
+        .sub-dropdown-content-right {
+          left: 100%;
+          top: 0;
+        }
+
+        .sub-dropdown-content-left {
+          right: 100%;
+          top: 0;
+        }
+
+        #menu-overlay {
+            display: none;
+        }
+      }
+
+      /* Mobile Dropdown Styles */
+      .mobile-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .mobile-dropdown.open {
+        max-height: 1000px;
+        transition: max-height 0.5s ease-in;
+      }
+
+      .sub-mobile-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .sub-mobile-dropdown.open {
+        max-height: 1000px;
+        transition: max-height 0.5s ease-in;
+      }
+
+      .mobile-dropdown-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-dropdown-icon.open {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 font-sans">
+    <nav class="bg-white fixed w-full shadow z-[50]">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between h-16 items-center">
+          <div class="text-2xl font-extrabold text-blue-600">Logo</div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex space-x-6 items-center">
+            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium"
+              >Home</a
+            >
+            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium"
+              >About</a
+            >
+
+            <!-- Services Dropdown -->
+            <div class="relative dropdown group">
+              <button
+                class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+              >
+                Services
+                <svg
+                  class="w-4 h-4 ml-1 rotate-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                class="dropdown-content absolute mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg"
+              >
+                <a href="#" class="block px-4 py-2 hover:bg-blue-50">Design</a>
+                <div class="relative has-sub-dropdown group">
+                  <div
+                    class="flex justify-between items-center px-4 py-2 hover:bg-blue-50 cursor-pointer"
+                  >
+                    Development
+                    <svg
+                      class="w-4 h-4 ml-2 rotate-sub-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="sub-dropdown-content absolute ml-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg"
+                  >
+                    <a href="#" class="block px-4 py-2 text-sm hover:bg-blue-50"
+                      >Frontend</a
+                    >
+                    <a href="#" class="block px-4 py-2 text-sm hover:bg-blue-50"
+                      >Backend</a
+                    >
+                  </div>
+                </div>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                  >Marketing</a
+                >
+              </div>
+            </div>
+
+            <!-- Pages Dropdown -->
+            <div class="relative dropdown group">
+              <button
+                class="flex items-center text-gray-700 hover:text-blue-600 font-medium"
+              >
+                Pages
+                <svg
+                  class="w-4 h-4 ml-1 rotate-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                class="dropdown-content absolute mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg"
+              >
+                <a href="#" class="block px-4 py-2 hover:bg-blue-50">Page 1</a>
+                <div class="relative has-sub-dropdown group">
+                  <div
+                    class="flex justify-between items-center px-4 py-2 hover:bg-blue-50 cursor-pointer"
+                  >
+                    Page 2
+                    <svg
+                      class="w-4 h-4 ml-2 rotate-sub-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="sub-dropdown-content absolute ml-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg"
+                  >
+                    <a href="#" class="block px-4 py-2 text-sm hover:bg-blue-50"
+                      >Text 1</a
+                    >
+                    <a href="#" class="block px-4 py-2 text-sm hover:bg-blue-50"
+                      >Text 2</a
+                    >
+                  </div>
+                </div>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-50">Page 3</a>
+              </div>
+            </div>
+
+            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button id="menu-btn" class="text-gray-700">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-[52] md:hidden"
+    >
+      <div class="flex justify-between items-center px-4 py-3 border-b">
+        <div class="text-xl font-bold text-blue-600">Menu</div>
+        <button id="close-menu" class="text-gray-600">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="px-4 py-2 space-y-1">
+        <a
+          href="#"
+          class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded"
+          >Home</a
+        >
+        <a
+          href="#"
+          class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded"
+          >About</a
+        >
+
+        <!-- Services Dropdown -->
+        <div>
+          <button
+            class="mobile-dropdown-btn flex justify-between items-center w-full px-3 py-2 text-gray-700 hover:bg-blue-50 rounded"
+          >
+            Services
+            <svg
+              class="mobile-dropdown-icon w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          <div class="mobile-dropdown pl-4">
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-600 hover:bg-blue-50 rounded"
+              >Design</a
+            >
+            <div>
+              <button
+                class="sub-mobile-dropdown-btn flex justify-between items-center w-full px-3 py-2 text-gray-600 hover:bg-blue-50 rounded"
+              >
+                Development
+                <svg
+                  class="mobile-dropdown-icon w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div class="sub-mobile-dropdown pl-4">
+                <a
+                  href="#"
+                  class="block px-3 py-1 text-sm text-gray-600 hover:bg-blue-50 rounded"
+                  >Frontend</a
+                >
+                <a
+                  href="#"
+                  class="block px-3 py-1 text-sm text-gray-600 hover:bg-blue-50 rounded"
+                  >Backend</a
+                >
+              </div>
+            </div>
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-600 hover:bg-blue-50 rounded"
+              >Marketing</a
+            >
+          </div>
+        </div>
+
+        <!-- Pages Dropdown -->
+        <div>
+          <button
+            class="mobile-dropdown-btn flex justify-between items-center w-full px-3 py-2 text-gray-700 hover:bg-blue-50 rounded"
+          >
+            Pages
+            <svg
+              class="mobile-dropdown-icon w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          <div class="mobile-dropdown pl-4">
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-600 hover:bg-blue-50 rounded"
+              >Page 1</a
+            >
+            <div>
+              <button
+                class="sub-mobile-dropdown-btn flex justify-between items-center w-full px-3 py-2 text-gray-600 hover:bg-blue-50 rounded"
+              >
+                Page 2
+                <svg
+                  class="mobile-dropdown-icon w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div class="sub-mobile-dropdown pl-4">
+                <a
+                  href="#"
+                  class="block px-3 py-1 text-sm text-gray-600 hover:bg-blue-50 rounded"
+                  >Text 1</a
+                >
+                <a
+                  href="#"
+                  class="block px-3 py-1 text-sm text-gray-600 hover:bg-blue-50 rounded"
+                  >Text 2</a
+                >
+              </div>
+            </div>
+            <a
+              href="#"
+              class="block px-3 py-2 text-gray-600 hover:bg-blue-50 rounded"
+              >Page 3</a
+            >
+          </div>
+        </div>
+
+        <a
+          href="#"
+          class="block px-3 py-2 text-gray-700 hover:bg-blue-50 rounded"
+          >Contact</a
+        >
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div
+      id="menu-overlay"
+      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-[51] hidden"
+    ></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuBtn = document.getElementById("menu-btn");
+        const closeMenuBtn = document.getElementById("close-menu");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuOverlay = document.getElementById("menu-overlay");
+
+        // Track currently open dropdowns
+        let currentOpenDropdown = null;
+        let currentOpenSubDropdown = null;
+
+        // Mobile menu toggle
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.remove("-translate-x-full");
+          menuOverlay.classList.remove("hidden");
+        });
+
+        // Close mobile menu
+        function closeMobileMenu() {
+          mobileMenu.classList.add("-translate-x-full");
+          menuOverlay.classList.add("hidden");
+          closeAllDropdowns();
+        }
+
+        closeMenuBtn.addEventListener("click", closeMobileMenu);
+        menuOverlay.addEventListener("click", closeMobileMenu);
+
+        // Mobile dropdown functionality
+        const dropdownButtons = document.querySelectorAll(
+          ".mobile-dropdown-btn"
+        );
+
+        dropdownButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.stopPropagation();
+
+            const dropdown = this.nextElementSibling;
+            const icon = this.querySelector(".mobile-dropdown-icon");
+
+            // Close other dropdowns at the same level
+            if (currentOpenDropdown && currentOpenDropdown !== dropdown) {
+              const otherIcon =
+                currentOpenDropdown.previousElementSibling.querySelector(
+                  ".mobile-dropdown-icon"
+                );
+              currentOpenDropdown.classList.remove("open");
+              if (otherIcon) otherIcon.classList.remove("open");
+            }
+
+            // Toggle current dropdown
+            dropdown.classList.toggle("open");
+            icon.classList.toggle("open");
+
+            // Update current open dropdown
+            currentOpenDropdown = dropdown.classList.contains("open")
+              ? dropdown
+              : null;
+
+            // Close any open sub-dropdowns when closing main dropdown
+            if (!dropdown.classList.contains("open")) {
+              closeAllSubDropdowns();
+            }
+          });
+        });
+
+        // Sub-mobile dropdown functionality
+        const subDropdownButtons = document.querySelectorAll(
+          ".sub-mobile-dropdown-btn"
+        );
+
+        subDropdownButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.stopPropagation();
+
+            const subDropdown = this.nextElementSibling;
+            const icon = this.querySelector(".mobile-dropdown-icon");
+
+            // Close other sub-dropdowns at the same level
+            if (
+              currentOpenSubDropdown &&
+              currentOpenSubDropdown !== subDropdown
+            ) {
+              const otherIcon =
+                currentOpenSubDropdown.previousElementSibling.querySelector(
+                  ".mobile-dropdown-icon"
+                );
+              currentOpenSubDropdown.classList.remove("open");
+              if (otherIcon) otherIcon.classList.remove("open");
+            }
+
+            // Toggle current sub-dropdown
+            subDropdown.classList.toggle("open");
+            icon.classList.toggle("open");
+
+            // Update current open sub-dropdown
+            currentOpenSubDropdown = subDropdown.classList.contains("open")
+              ? subDropdown
+              : null;
+          });
+        });
+
+        // Close all dropdowns
+        function closeAllDropdowns() {
+          document
+            .querySelectorAll(".mobile-dropdown.open")
+            .forEach((dropdown) => {
+              dropdown.classList.remove("open");
+            });
+
+          document
+            .querySelectorAll(".mobile-dropdown-btn .mobile-dropdown-icon.open")
+            .forEach((icon) => {
+              icon.classList.remove("open");
+            });
+
+          currentOpenDropdown = null;
+          closeAllSubDropdowns();
+        }
+
+        // Close all sub-dropdowns
+        function closeAllSubDropdowns() {
+          document
+            .querySelectorAll(".sub-mobile-dropdown.open")
+            .forEach((dropdown) => {
+              dropdown.classList.remove("open");
+            });
+
+          document
+            .querySelectorAll(
+              ".sub-mobile-dropdown-btn .mobile-dropdown-icon.open"
+            )
+            .forEach((icon) => {
+              icon.classList.remove("open");
+            });
+
+          currentOpenSubDropdown = null;
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            !e.target.closest(".mobile-dropdown-btn") &&
+            !e.target.closest(".sub-mobile-dropdown-btn") &&
+            !e.target.closest(".mobile-dropdown") &&
+            !e.target.closest(".sub-mobile-dropdown")
+          ) {
+            closeAllDropdowns();
+          }
+        });
+
+        // Dynamic dropdown positioning for desktop
+        function adjustDropdownPositions() {
+          if (window.innerWidth >= 768) {
+            // Only for desktop
+            document.querySelectorAll(".dropdown").forEach((dropdown) => {
+              const dropdownContent =
+                dropdown.querySelector(".dropdown-content");
+              if (!dropdownContent) return;
+
+              const dropdownRect = dropdown.getBoundingClientRect();
+              const contentWidth = dropdownContent.offsetWidth;
+
+              // Check if dropdown would go off screen to the right
+              if (dropdownRect.left + contentWidth > window.innerWidth) {
+                dropdownContent.classList.add("dropdown-content-left");
+                dropdownContent.classList.remove("dropdown-content-right");
+              } else {
+                dropdownContent.classList.add("dropdown-content-right");
+                dropdownContent.classList.remove("dropdown-content-left");
+              }
+
+              // Adjust sub-dropdowns
+              dropdown
+                .querySelectorAll(".has-sub-dropdown")
+                .forEach((subDropdown) => {
+                  const subDropdownContent = subDropdown.querySelector(
+                    ".sub-dropdown-content"
+                  );
+                  if (!subDropdownContent) return;
+
+                  const subDropdownRect = subDropdown.getBoundingClientRect();
+                  const subContentWidth = subDropdownContent.offsetWidth;
+
+                  // Check if sub-dropdown would go off screen to the right
+                  if (
+                    subDropdownRect.left + contentWidth + subContentWidth >
+                    window.innerWidth
+                  ) {
+                    subDropdownContent.classList.add(
+                      "sub-dropdown-content-left"
+                    );
+                    subDropdownContent.classList.remove(
+                      "sub-dropdown-content-right"
+                    );
+                  } else {
+                    subDropdownContent.classList.add(
+                      "sub-dropdown-content-right"
+                    );
+                    subDropdownContent.classList.remove(
+                      "sub-dropdown-content-left"
+                    );
+                  }
+                });
+            });
+          }
+        }
+
+        // Run on load and resize
+        adjustDropdownPositions();
+        window.addEventListener("resize", adjustDropdownPositions);
+
+        // Also adjust when dropdowns are hovered (in case content changes)
+        document.querySelectorAll(".dropdown").forEach((dropdown) => {
+          dropdown.addEventListener("mouseenter", adjustDropdownPositions);
+        });
+      });
+    </script>
+  </body>
+</html>
